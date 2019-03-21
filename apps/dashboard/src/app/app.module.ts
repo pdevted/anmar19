@@ -19,11 +19,8 @@ import { UiLoginModule } from '@workshop/ui-login';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule,
-    HomeModule,
-    ProjectsModule,
-    CustomersModule,
-    UiLoginModule
+    UiLoginModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

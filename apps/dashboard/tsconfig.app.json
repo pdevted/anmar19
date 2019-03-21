@@ -1,5 +1,6 @@
 {
   "extends": "./tsconfig.json",
+  "BaseUrl": "./",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc/apps/dashboard",
     "types": []
