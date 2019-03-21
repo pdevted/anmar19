@@ -9,7 +9,7 @@ import { ProjectsService, Project } from '@workshop/core-data';
 })
 export class ProjectsComponent implements OnInit {
   primaryColor = 'red';
-  projects$: Observable<Project[]>;
+  projects$;
   selectedProject: Project;
 
   constructor(private projectsService: ProjectsService) {}
@@ -25,6 +25,12 @@ export class ProjectsComponent implements OnInit {
 
   getProjects() {
     this.projects$ = this.projectsService.all();
+  }
+
+  deleteProject(project) {
+    this.projectsService
+      .delete(project.id)
+      .subscribe(result => this.getProjects());
   }
 
   cancel() {
