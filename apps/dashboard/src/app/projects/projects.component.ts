@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProjectsService, Project } from '@workshop/core-data';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProjectsService, Project } from '@workshop/core-data';
 })
 export class ProjectsComponent implements OnInit {
   primaryColor = 'red';
-  projects: Project[];
+  projects$: Observable<Project[]>;
   selectedProject: Project;
 
   constructor(private projectsService: ProjectsService) {}
@@ -23,7 +24,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects() {
-    this.projects = this.projectsService.all();
+    this.projects$ = this.projectsService.all();
   }
 
   cancel() {
