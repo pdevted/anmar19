@@ -10,12 +10,14 @@ import { MaterialModule } from '@workshop/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UiLoginModule } from '@workshop/ui-login';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MaterialModule,
     UiLoginModule,

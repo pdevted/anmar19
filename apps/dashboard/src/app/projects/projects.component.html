@@ -32,16 +32,18 @@
       <mat-card-header>
         <mat-card-title>
           <h1>
-            <span *ngIf="selectedProject; else: elseBlock">{{
+            <span *ngIf="selectedProject; else elseBlock">{{
               selectedProject.title
             }}</span>
             <ng-template #elseBlock>Select a Project</ng-template>
           </h1>
         </mat-card-title>
       </mat-card-header>
-      <form>
+      <form (submit)="saveProject(selectedProject)">
         <mat-card-content>
-          <pre>{{ selectedProject | json }}</pre>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Title" [(ngModel)]="selectedProject.title" type="text" name="title">
+             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
           <button type="submit" mat-button color="primary">Save</button>

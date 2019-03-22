@@ -16,11 +16,23 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.getProjects();
+    this.resetProject();
   }
 
   selectProject(project) {
     this.selectedProject = project;
     // console.log('SELECTED PROJECT', project);
+  }
+
+  resetProject() {
+    const emptyProject: Project = {
+      id: null,
+      title: '',
+      details: '',
+      percentComplete: 0,
+      approved: false
+    };
+    this.selectProject(emptyProject);
   }
 
   getProjects() {
@@ -33,7 +45,11 @@ export class ProjectsComponent implements OnInit {
       .subscribe(result => this.getProjects());
   }
 
+  saveProject(project) {
+    console.log('Saving Project', project);
+  }
+
   cancel() {
-    this.selectProject(null);
+    this.resetProject();
   }
 }
