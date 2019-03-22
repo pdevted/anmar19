@@ -46,7 +46,25 @@ export class ProjectsComponent implements OnInit {
   }
 
   saveProject(project) {
-    console.log('Saving Project', project);
+    if (!project.id) {
+      this.createProject(project);
+    } else {
+      this.updateProject(project);
+    }
+  }
+
+  createProject(project) {
+    this.projectsService.create(project).subscribe(result => {
+      this.getProjects();
+      this.resetProject();
+    });
+  }
+
+  updateProject(project) {
+    this.projectsService.update(project).subscribe(result => {
+      this.getProjects();
+      this.resetProject();
+    });
   }
 
   cancel() {

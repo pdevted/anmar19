@@ -25,6 +25,7 @@ export class ProjectsService {
   }
 
   create(project) {
+    console.log('@@');
     return this.httpClient.post(this.getUrl(), project);
   }
 
